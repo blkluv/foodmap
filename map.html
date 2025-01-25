@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e0af2f0f16bace3e764f6acecd5918af {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e0af2f0f16bace3e764f6acecd5918af" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e0af2f0f16bace3e764f6acecd5918af = L.map(
+                "map_e0af2f0f16bace3e764f6acecd5918af",
+                {
+                    center: [37.7529, -122.4474],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aef349535e9b2f04f2644d0f8c7cf1b0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_aef349535e9b2f04f2644d0f8c7cf1b0.addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var marker_17a8f7db3bb7709d2e754f3d2c19037c = L.marker(
+                [37.7529, -122.4474],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_2f90f3ef3f1ea209bc3b50d3fc102761 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-record", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_17a8f7db3bb7709d2e754f3d2c19037c.setIcon(icon_2f90f3ef3f1ea209bc3b50d3fc102761);
+        
+    
+        var popup_7122e96b36e4c0184b99e2fbe406d47f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2facb056f8fd73b4dc9f430a6e5373f2 = $(`<div id="html_2facb056f8fd73b4dc9f430a6e5373f2" style="width: 100.0%; height: 100.0%;">You are here</div>`)[0];
+                popup_7122e96b36e4c0184b99e2fbe406d47f.setContent(html_2facb056f8fd73b4dc9f430a6e5373f2);
+            
+        
+
+        marker_17a8f7db3bb7709d2e754f3d2c19037c.bindPopup(popup_7122e96b36e4c0184b99e2fbe406d47f)
+        ;
+
+        
+    
+    
+            var marker_81ee1a58a52dc021630c70e2151fbc11 = L.marker(
+                [37.78285, -122.464589],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_78501a75a44764ee3273b3a65b91ce4f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_81ee1a58a52dc021630c70e2151fbc11.setIcon(icon_78501a75a44764ee3273b3a65b91ce4f);
+        
+    
+        var popup_258e73ca2d31b4ce10c91a1a21c4f57c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_363291cecfb62b8a1502a00f2c2fd7ac = $(`<div id="html_363291cecfb62b8a1502a00f2c2fd7ac" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/grubwitmike/reel/C1av2m9xCGc/" target="_blank">503 CLEMENT ST SAN FRANCISCO, CA</a></div>`)[0];
+                popup_258e73ca2d31b4ce10c91a1a21c4f57c.setContent(html_363291cecfb62b8a1502a00f2c2fd7ac);
+            
+        
+
+        marker_81ee1a58a52dc021630c70e2151fbc11.bindPopup(popup_258e73ca2d31b4ce10c91a1a21c4f57c)
+        ;
+
+        
+    
+    
+            var marker_ed31829452db30ea4307d7bbc4e8c9a1 = L.marker(
+                [37.794642, -122.275639],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_f98e510cfe806b378cc12f9c0d76291a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ed31829452db30ea4307d7bbc4e8c9a1.setIcon(icon_f98e510cfe806b378cc12f9c0d76291a);
+        
+    
+        var popup_3cbab2c61729af17959e4da9bf93dd4a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aeea16018510f6b92693a1b0922de36d = $(`<div id="html_aeea16018510f6b92693a1b0922de36d" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/grubwitmike/reel/C0X_JoGtESz/" target="_blank">90 FRANKLIN STREET OAKLAND, CA</a></div>`)[0];
+                popup_3cbab2c61729af17959e4da9bf93dd4a.setContent(html_aeea16018510f6b92693a1b0922de36d);
+            
+        
+
+        marker_ed31829452db30ea4307d7bbc4e8c9a1.bindPopup(popup_3cbab2c61729af17959e4da9bf93dd4a)
+        ;
+
+        
+    
+    
+            var marker_6458be6323e59de7613ab88a96c20504 = L.marker(
+                [37.758017, -122.388904],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_45ef0277b1beee92ed5ace50c99b47f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6458be6323e59de7613ab88a96c20504.setIcon(icon_45ef0277b1beee92ed5ace50c99b47f8);
+        
+    
+        var popup_e8a89de61b85f483feff3448b7ed32b1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d84e5632c696a1a9b166d8e2616132a1 = $(`<div id="html_d84e5632c696a1a9b166d8e2616132a1" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/grubwitmike/reel/Czpdv5Gxm7S/" target="_blank">732 22nd STREET SAN FRANCISCO, CA</a></div>`)[0];
+                popup_e8a89de61b85f483feff3448b7ed32b1.setContent(html_d84e5632c696a1a9b166d8e2616132a1);
+            
+        
+
+        marker_6458be6323e59de7613ab88a96c20504.bindPopup(popup_e8a89de61b85f483feff3448b7ed32b1)
+        ;
+
+        
+    
+    
+            var marker_da2b981bf4c68495682990863ec3aa51 = L.marker(
+                [37.54256, -122.510846],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_848e66fedfd193ac09d5e7da7e72a019 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_da2b981bf4c68495682990863ec3aa51.setIcon(icon_848e66fedfd193ac09d5e7da7e72a019);
+        
+    
+        var popup_4fc3e9913500e988e664b85fc8a6e8d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1d790a8d117448413341b8c23687ac28 = $(`<div id="html_1d790a8d117448413341b8c23687ac28" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C3WXnW8RHPH/?igsh=ejdqYjVqdm5ubndi" target="_blank">71E 4TH ST SAN MATEO, CA</a></div>`)[0];
+                popup_4fc3e9913500e988e664b85fc8a6e8d7.setContent(html_1d790a8d117448413341b8c23687ac28);
+            
+        
+
+        marker_da2b981bf4c68495682990863ec3aa51.bindPopup(popup_4fc3e9913500e988e664b85fc8a6e8d7)
+        ;
+
+        
+    
+    
+            var marker_cc82ffb1c30302decc730180462cf26c = L.marker(
+                [37.610319, -122.025547],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_24a37ec6738534aa86ad2e19fed41c7b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cc82ffb1c30302decc730180462cf26c.setIcon(icon_24a37ec6738534aa86ad2e19fed41c7b);
+        
+    
+        var popup_339ccd0b298a77bf70bf19b326273e3d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d3dd2b4eba171b85841cf9ea7527c32c = $(`<div id="html_d3dd2b4eba171b85841cf9ea7527c32c" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C3LaGyLPxdl/?igsh=cWtub3FseHB1aTJp" target="_blank">32681 MISSION BLVD HAYWARD, CA</a></div>`)[0];
+                popup_339ccd0b298a77bf70bf19b326273e3d.setContent(html_d3dd2b4eba171b85841cf9ea7527c32c);
+            
+        
+
+        marker_cc82ffb1c30302decc730180462cf26c.bindPopup(popup_339ccd0b298a77bf70bf19b326273e3d)
+        ;
+
+        
+    
+    
+            var marker_fad8a093d88144cd5408b78cd19e1282 = L.marker(
+                [37.852301, -122.260451],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_0dbdf125fe113151e854d59bd8a37ed9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fad8a093d88144cd5408b78cd19e1282.setIcon(icon_0dbdf125fe113151e854d59bd8a37ed9);
+        
+    
+        var popup_a61a4669048452992999b673e352901a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eb0771e139a86f2847ebb32a4b548bea = $(`<div id="html_eb0771e139a86f2847ebb32a4b548bea" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C2RBYiELJLw/?igsh=Yms5NGZrYno5YzNy" target="_blank">6601 TELEGRAPH AVE OAKLAND, CA</a></div>`)[0];
+                popup_a61a4669048452992999b673e352901a.setContent(html_eb0771e139a86f2847ebb32a4b548bea);
+            
+        
+
+        marker_fad8a093d88144cd5408b78cd19e1282.bindPopup(popup_a61a4669048452992999b673e352901a)
+        ;
+
+        
+    
+    
+            var marker_c706a781fcd0fb97d741d27dce2fe73b = L.marker(
+                [37.738416, -122.14403],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_888c63cd82158882aaf733040d5b060d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c706a781fcd0fb97d741d27dce2fe73b.setIcon(icon_888c63cd82158882aaf733040d5b060d);
+        
+    
+        var popup_deb5d067b9bd5d70322588f0b358e4f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a082c910f631c8bb9a46e313af25552f = $(`<div id="html_a082c910f631c8bb9a46e313af25552f" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C1LTBYUx66u/?igsh=MXN2c2E1cHZxODV2eg==" target="_blank">403 LEWIS AVE SAN LEANDRO, CA</a></div>`)[0];
+                popup_deb5d067b9bd5d70322588f0b358e4f1.setContent(html_a082c910f631c8bb9a46e313af25552f);
+            
+        
+
+        marker_c706a781fcd0fb97d741d27dce2fe73b.bindPopup(popup_deb5d067b9bd5d70322588f0b358e4f1)
+        ;
+
+        
+    
+    
+            var marker_ba484912aeeb88bd23d487d4a96297fd = L.marker(
+                [37.698282, -121.839957],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_b8bce3f577af89d112fdcb7c4b359914 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ba484912aeeb88bd23d487d4a96297fd.setIcon(icon_b8bce3f577af89d112fdcb7c4b359914);
+        
+    
+        var popup_3e7991923d067070db6c8dba194d63e0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3f92172666c53f6e1beeeae8ebd3c763 = $(`<div id="html_3f92172666c53f6e1beeeae8ebd3c763" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C3GhXFqPwKt/?igsh=ZmU0eHEwZXFmeHZv" target="_blank">4587 LIVERMORE OUTLETS DRIVE LIVERMORE, CA</a></div>`)[0];
+                popup_3e7991923d067070db6c8dba194d63e0.setContent(html_3f92172666c53f6e1beeeae8ebd3c763);
+            
+        
+
+        marker_ba484912aeeb88bd23d487d4a96297fd.bindPopup(popup_3e7991923d067070db6c8dba194d63e0)
+        ;
+
+        
+    
+    
+            var marker_8dfe802444771054069c6db674b13a13 = L.marker(
+                [37.323113, -121.954794],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_c0014663ecbc6e7d393ac95818efb560 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8dfe802444771054069c6db674b13a13.setIcon(icon_c0014663ecbc6e7d393ac95818efb560);
+        
+    
+        var popup_9588b7312f5f12dc7663ab4022e2d78d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ea37111ceab5aab8c4fad6e4e987824 = $(`<div id="html_5ea37111ceab5aab8c4fad6e4e987824" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/CyqzzucRJZh/?igsh=YW4zb3VlMW1oMjRv" target="_blank">3275 STEVENS CREEK BLVD SAN JOSE, CA</a></div>`)[0];
+                popup_9588b7312f5f12dc7663ab4022e2d78d.setContent(html_5ea37111ceab5aab8c4fad6e4e987824);
+            
+        
+
+        marker_8dfe802444771054069c6db674b13a13.bindPopup(popup_9588b7312f5f12dc7663ab4022e2d78d)
+        ;
+
+        
+    
+    
+            var marker_a97d9d1d801152d9c597f99605c4501c = L.marker(
+                [37.772392, -122.428949],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_50c7411515b360c90528ebae999a115f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a97d9d1d801152d9c597f99605c4501c.setIcon(icon_50c7411515b360c90528ebae999a115f);
+        
+    
+        var popup_91f819373cbcc85aa41cadac7890adff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_29de49d26b0d38abe464cbbf3f51b042 = $(`<div id="html_29de49d26b0d38abe464cbbf3f51b042" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/CzEnPnIvUAf/?igsh=bWM0Z2t3OTJrb2l0" target="_blank">400 HAIGHT ST  FRANCISCO, CA   </a></div>`)[0];
+                popup_91f819373cbcc85aa41cadac7890adff.setContent(html_29de49d26b0d38abe464cbbf3f51b042);
+            
+        
+
+        marker_a97d9d1d801152d9c597f99605c4501c.bindPopup(popup_91f819373cbcc85aa41cadac7890adff)
+        ;
+
+        
+    
+    
+            var marker_9bab03e010bbbff867d2c84313764974 = L.marker(
+                [33.985997, -117.934925],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_fce5be9cd9b238aadf53e223b0931e3d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9bab03e010bbbff867d2c84313764974.setIcon(icon_fce5be9cd9b238aadf53e223b0931e3d);
+        
+    
+        var popup_326a1ce81a3790df92b7e6cb5e77c685 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4a6aed609e1f8cd1e2c3c342d4f1f763 = $(`<div id="html_4a6aed609e1f8cd1e2c3c342d4f1f763" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C6E1Oa-hHFz/?igsh=MTBoOHk2b3h3OWN0aA==" target="_blank">1631 S Azusa Ave, Hacienda Heights, CA </a></div>`)[0];
+                popup_326a1ce81a3790df92b7e6cb5e77c685.setContent(html_4a6aed609e1f8cd1e2c3c342d4f1f763);
+            
+        
+
+        marker_9bab03e010bbbff867d2c84313764974.bindPopup(popup_326a1ce81a3790df92b7e6cb5e77c685)
+        ;
+
+        
+    
+    
+            var marker_c8c549c8e3d4c9b8e1b832ddf584259d = L.marker(
+                [37.782845, -122.464713],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_a4281b8c7f6cb46892470c4d06bc3285 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c8c549c8e3d4c9b8e1b832ddf584259d.setIcon(icon_a4281b8c7f6cb46892470c4d06bc3285);
+        
+    
+        var popup_e1c413d8cdfcdf1f5f76c0ba194c6063 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6595e86f75b6ad7727c9b44465f72a78 = $(`<div id="html_6595e86f75b6ad7727c9b44465f72a78" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C7W2YaEJNp0/?igsh=MTc4MmM1YmI2Ng==" target="_blank">519 Clement St San Francisco, Ca </a></div>`)[0];
+                popup_e1c413d8cdfcdf1f5f76c0ba194c6063.setContent(html_6595e86f75b6ad7727c9b44465f72a78);
+            
+        
+
+        marker_c8c549c8e3d4c9b8e1b832ddf584259d.bindPopup(popup_e1c413d8cdfcdf1f5f76c0ba194c6063)
+        ;
+
+        
+    
+    
+            var marker_efbd0e627783a08bbb832883e60203f0 = L.marker(
+                [38.576565, -121.484634],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_3c689ea69af2ecbaae470d975bd61c4c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_efbd0e627783a08bbb832883e60203f0.setIcon(icon_3c689ea69af2ecbaae470d975bd61c4c);
+        
+    
+        var popup_3abbfcd7069c1900c011dec078a08b6b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7715a2d6f8408e8d49a97c31a2301fcb = $(`<div id="html_7715a2d6f8408e8d49a97c31a2301fcb" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C44FFj9PVoS/?igsh=MTc4MmM1YmI2Ng==" target="_blank">1630 K St Sacramento, CA </a></div>`)[0];
+                popup_3abbfcd7069c1900c011dec078a08b6b.setContent(html_7715a2d6f8408e8d49a97c31a2301fcb);
+            
+        
+
+        marker_efbd0e627783a08bbb832883e60203f0.bindPopup(popup_3abbfcd7069c1900c011dec078a08b6b)
+        ;
+
+        
+    
+    
+            var marker_77628fbafab0926769aeded9ad6950e2 = L.marker(
+                [37.241296, -121.905184],
+                {}
+            ).addTo(map_e0af2f0f16bace3e764f6acecd5918af);
+        
+    
+            var icon_55b79aa8644c9830790dddb4ac14effb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_77628fbafab0926769aeded9ad6950e2.setIcon(icon_55b79aa8644c9830790dddb4ac14effb);
+        
+    
+        var popup_ad78cafea3d1fbe50a5352c9f245c1d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bbf71ab360bccedff91efefd09c80b66 = $(`<div id="html_bbf71ab360bccedff91efefd09c80b66" style="width: 100.0%; height: 100.0%;"><a href="https://www.instagram.com/reel/C6mAoTfpMsL/?igsh=MTc4MmM1YmI2Ng==" target="_blank">5365 Camden Ave, San Jose, CA </a></div>`)[0];
+                popup_ad78cafea3d1fbe50a5352c9f245c1d7.setContent(html_bbf71ab360bccedff91efefd09c80b66);
+            
+        
+
+        marker_77628fbafab0926769aeded9ad6950e2.bindPopup(popup_ad78cafea3d1fbe50a5352c9f245c1d7)
+        ;
+
+        
+    
+</script>
+</html>

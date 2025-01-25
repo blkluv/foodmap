@@ -1,0 +1,28 @@
+import mysql.connector
+
+def create():
+    conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'password', database = 'foodmap')
+    my_cursor  = conn.cursor()
+    return my_cursor
+
+def add_loc(my_cursor, new_loc):
+    # new_loc = ('3', '732 22nd STREET SAN FRANCISCO, CA', 'https://www.instagram.com/grubwitmike/reel/Czpdv5Gxm7S/', '37.7580168', '-122.388904')
+    my_cursor.execute("INSERT INTO `foodmap`.`location` (`address`, `url`, `latitude`, `longitude`) VALUES " + str(new_loc))
+
+
+# conn.commit()
+
+conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'password', database = 'foodmap')
+my_cursor  = conn.cursor()
+
+my_cursor.execute("SELECT * FROM foodmap.location")
+
+myresult = my_cursor.fetchall()
+
+
+
+for row in myresult:
+    print(row)
+    print(float(row[3]))
+print(myresult)
+my_cursor.close()

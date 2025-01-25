@@ -1,0 +1,25 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
+# Path to where you've stored the ChromeDriver executable
+chromedriver_path = '/Users/keshav/Downloads/chromedriver-mac-x64/chromedriver'
+
+# URL you want to take a screenshot of
+url = 'https://www.instagram.com/grubwitmike/reel/C1av2m9xCGc/'
+
+service = Service(executable_path=chromedriver_path)
+driver = webdriver.Chrome(service=service)
+
+try:
+    driver.get(url)
+
+    # Find the element that you want to screenshot
+    # Replace 'element_selector' with the actual selector of the element you're interested in
+    # element = driver.find_element(By.CSS_SELECTOR, 'h1._ap3a._aacu._aacx._aad7._aade')
+
+    # # Take a screenshot of just the selected element
+    # element.screenshot('element_screenshot.png')
+
+finally:
+    driver.quit()

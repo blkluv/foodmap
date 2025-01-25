@@ -1,0 +1,26 @@
+from PIL import Image
+from pytesseract import pytesseract
+import re
+
+# def img2addr(path_to_image):
+
+path_to_tesseract = r'/usr/local/bin/tesseract'
+
+# path_to_image = "/Users/keshav/Projects/foodmap/images/cap1.png"
+path_to_image = "/Users/keshav/Projects/foodmap/images/cap1.png"
+
+
+pytesseract.tesseract_cmd = path_to_tesseract
+
+img = Image.open(path_to_image)
+
+text = pytesseract.image_to_string(img)\
+
+print(text)
+
+# regexp = "[0-9]{1,5} [\s\S]+, [A-Z]{2}"
+regexp = "[0-9]{1,5}[\s\S]+, [A-Z]{2}"
+# regexp = "[0-9]{1,5} .+\n.+, [A-Z]{2}" wrong
+address = re.search(regexp, text)
+
+print(address)

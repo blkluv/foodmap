@@ -1,0 +1,16 @@
+import folium
+
+# Example coordinates (latitude, longitude)
+latitude = 37.782850
+longitude = -122.464589
+
+# Create a map centered around the coordinates
+def create_map():
+    m = folium.Map(location=[latitude, longitude], zoom_start=12)
+    return m
+
+# Add a marker for the coordinates
+folium.Marker([latitude, longitude], popup='The point').add_to(m)
+
+# Display the map
+m.save("map.html")

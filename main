@@ -1,0 +1,44 @@
+import mysql.connector
+import folium
+import webbrowser
+import os
+
+# setup sql database
+# grab the adress from text from the image via ocr
+# geocode address
+# map these address with the cuurrent address and addresses store in sql db
+# open up current db with all current locations and with map including set current location
+
+#setup sql connection and retreive data
+conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'password', database = 'foodmap')
+my_cursor  = conn.cursor()
+my_cursor.execute("SELECT * FROM foodmap.location")
+myresult = my_cursor.fetchall()
+my_cursor.close()
+
+#init map
+current = [37.7529, -122.4474]
+m = folium.Map(location=current, zoom_start=12)
+current_icon = folium.Icon(color = "blue", icon = "glyphicon-record")
+folium.Marker(current, popup="You are here", icon=current_icon).add_to(m)
+
+#add markers for diff restaurants
+for row in myresult:
+    restaurant_icon = folium.Icon(color = "red", icon = "glyphicon-cutlery")
+    popup_tag = "<a href=\""  + row[2] + "\" target=\"_blank\">" + row[1] + "</a>"
+    restaurant_popup = folium.Popup(folium.Html(""))
+    folium.Marker([float(row[3]), float(row[4])], popup=popup_tag, icon=restaurant_icon).add_to(m)
+
+#open up in browser
+filename = "map.html"
+m.save(filename)
+file_path = os.path.abspath(filename)
+
+webbrowser.open("file://" + file_path)
+
+
+
+
+
+
+

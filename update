@@ -1,0 +1,190 @@
+import dropbox
+from PIL import Image, ImageOps
+from pytesseract import pytesseract
+import re
+import mysql.connector
+import certifi
+import ssl
+import geopy.geocoders
+import time
+import math
+from geopy.geocoders import Nominatim
+import usaddress
+import cv2
+import numpy as np
+
+#inint dbx
+dbx = dropbox.Dropbox("key")
+
+#get urls from dbx
+urls = []
+url_paths = []
+
+response = dbx.files_list_folder("/URLs")
+for entry in response.entries:
+    if isinstance(entry, dropbox.files.FileMetadata):
+        metadata, res = dbx.files_download(entry.path_lower)
+        content = res.content.decode("utf-8")
+        urls.append(content)
+    url_paths.append(entry.path_lower)
+    # dbx.files_delete_v2(entry.path_lower)
+
+# If there are more files than fit in the initial response, continue listing
+# while response.has_more:
+#     response = dbx.files_list_folder_continue(response.cursor)
+#     for entry in response.entries:
+#         if isinstance(entry, dropbox.files.FileMetadata):
+#             metadata, res = dbx.files_download(entry.path_lower)
+#             content = res.content.decode("utf-8")
+#             urls.append(content)
+#         dbx.files_delete_v2(entry.path_lower)
+
+print(urls)
+
+#get addresses from dbx
+extracted_texts = []
+addresses = []
+caption_paths = []
+path_to_tesseract = r'/usr/local/bin/tesseract'
+local_image_path = "/Users/keshav/Projects/foodmap/images/cap1.png"
+pytesseract.tesseract_cmd = path_to_tesseract
+# Initialization of regex 
+# regexp = "[0-9]{1,5}[\s\S]+, [A-Z]{2}"
+
+response = dbx.files_list_folder("/Captions")
+for entry in response.entries:
+    if isinstance(entry, dropbox.files.FileMetadata):
+        with open(local_image_path, "wb") as f:
+            metadata, res = dbx.files_download(path=entry.path_lower)
+            f.write(res.content)
+        
+        # img = Image.open(local_image_path)
+        # img = ImageOps.grayscale(img)
+
+        cv_image = cv2.imread('/Users/keshav/Projects/foodmap/images/cap1.png')
+        cv_image_rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
+        lower_white = np.array([200, 200, 200], dtype=np.uint8)
+        upper_white = np.array([255, 255, 255], dtype=np.uint8)
+        mask = cv2.inRange(cv_image_rgb, lower_white, upper_white)
+        white_regions = cv2.bitwise_and(cv_image_rgb, cv_image_rgb, mask=mask)
+
+        img = Image.fromarray(white_regions)
+
+        text = None
+        text = pytesseract.image_to_string(img)
+        # Implementation of regex 
+        # address = re.search(regexp, text)
+
+        extracted_texts.append(text)
+        
+        # items = usaddress.parse(text)
+        # d = {}
+
+        # for item in items:
+        #     d[item[1]] = item[0]
+
+        # address = ""
+
+        # order = ["AddressNumber", "StreetName", "StreetNamePostType", "PlaceName", "StateName"]
+
+        # for o in order:
+        #     if d.get(o, None) != None:
+        #         address += d.get(o, None) + " "
+        # # addresses.append(address.group(0).replace("\n", " ").strip())
+        # addresses.append(address)
+        caption_paths.append(entry.path_lower)
+
+
+        # dbx.files_delete_v2(entry.path_lower)
+
+# If there are more files than fit in the initial response, continue listing
+# while response.has_more:
+#     response = dbx.files_list_folder_continue(response.cursor)
+#     for entry in response.entries:
+#         if isinstance(entry, dropbox.files.FileMetadata):
+#             with open(local_image_path, "wb") as f:
+#                 metadata, res = dbx.files_download(path=entry.path_lower)
+#                 f.write(res.content)
+            
+#             img = Image.open(local_image_path)
+#             img = ImageOps.grayscale(img)
+#             text = pytesseract.image_to_string(img)
+#             # address = re.search(regexp, text)
+#             # Diff approach for grabbing addy
+#             items = usaddress.parse(text)
+#             d = {}
+
+#             for item in items:
+#                 d[item[1]] = item[0]
+
+#             address = ""
+
+#             order = ["AddressNumber", "StreetName", "StreetNamePostType", "PlaceName", "StateName"]
+
+#             for o in order:
+#                 if d.get(o, None) != None:
+#                     address += d.get(o, None) + " "
+
+#             # addresses.append(address.group(0).replace("\n", " ").strip())
+#             addresses.append(address)
+#             dbx.files_delete_v2(entry.path_lower)
+
+print(extracted_texts)
+
+coordinates = []
+ctx = ssl.create_default_context(cafile=certifi.where())
+geopy.geocoders.options.default_ssl_context = ctx
+geolocator = Nominatim(user_agent="foodmap", scheme='http', timeout = None)
+
+for i in range(len(extracted_texts)):
+    raw = str(extracted_texts[i])
+    raw = raw.replace('\n', ' ')
+    items = usaddress.parse(raw)
+    d = {}
+
+    for item in items:
+        if d.get(item[1], None) == None:
+            d[item[1]] = item[0]
+        else:
+            d[item[1]] = d[item[1]] + " " + item[0]
+    
+    address = ""
+
+    order = ["AddressNumber", "StreetNamePreDirectional", "StreetName", "StreetNamePostType", "PlaceName", "StateName"]
+
+    for o in order:
+        if d.get(o, None) != None:
+            address += d.get(o, None) + " "
+    # addresses.append(address.group(0).replace("\n", " ").strip())
+    print("here")
+
+    if address == None and address != "":
+        # try again
+        regexp = "[0-9]{1,5} .+ .+, [A-Z]{2}"
+        address = re.search(regexp, txt)
+        addresses.append(address)
+    else:
+        addresses.append(address)
+
+    print(address)
+
+    if address != None or address != "":
+        loc = geolocator.geocode(address)
+        if loc != None:
+            coordinates.append(loc)
+            dbx.files_delete_v2(url_paths[i])
+            dbx.files_delete_v2(caption_paths[i])
+
+
+print(coordinates)
+
+#get all of them
+conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'password', database = 'foodmap')
+my_cursor = conn.cursor()
+
+for i in range(len(coordinates)):
+    new_loc = (addresses[i], urls[i], coordinates[i].latitude, coordinates[i].longitude)
+    my_cursor.execute("INSERT INTO `foodmap`.`location` (`address`, `url`, `latitude`, `longitude`) VALUES " + str(new_loc))
+
+conn.commit()
+my_cursor.close()

@@ -1,0 +1,43 @@
+# import re
+
+# contents = []
+# # while True:
+# #     try:
+# #         line = input()
+# #         contents.append(line)
+# #     except EOFError:
+# #         break   
+
+# while True:
+#     line = input()
+#     if line:
+#         contents.append(line)
+#     else:
+#         break
+
+# txt = " ".join(contents)
+# regexp = "[0-9]{1,5} .+ .+, [A-Z]{2}"
+# address = re.search(regexp, txt)
+
+# print(address)
+
+import usaddress
+text = "It also unlocks the ability to teleport to the nearest and happiest food coma 👌😍🔥🍖 @daeho_official 📍Daeho - San Mateo, Milpitas, SF"
+
+items = usaddress.parse(text)
+d = {}
+
+for item in items:
+    d[item[1]] = item[0]
+
+address = ""
+
+order = ["AddressNumber", "StreetName", "StreetNamePostType", "PlaceName", "StateName"]
+
+for o in order:
+    if d.get(o, None) != None:
+        address += d.get(o, None) + " "
+
+print(address)
+
+
